@@ -4,4 +4,5 @@ header .logo {
   height: auto;      /* keeps aspect ratio */
   display: block;
   margin: 0 auto;
+  border: 5px solid red;
 }
