@@ -76,6 +76,33 @@ body::after {
   pointer-events: none;
 }
 
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 20px 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.site-nav a {
+  color: #e5e5e5;
+  opacity: 0.5;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+}
+
+.site-nav a.active {
+  opacity: 1;
+  color: #a11212;
+}
+
 header {
   text-align: center;
   padding: 80px 20px;  /* responsive */
@@ -134,6 +161,111 @@ h1 {
   line-height: 1.6;
 }
 
+.mailing-list {
+  max-width: 480px;
+  margin: 60px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.mailing-list h2 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.mailing-list p {
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+/*
+  MailerLite embedded form override — the form's own markup/CSS is
+  injected at runtime by their script (id #mlb2-44482977 is this
+  specific form, from the account's groot_id — stable unless the
+  form is recreated). Their rules are heavily !important'd and can
+  land in the DOM after ours, so we match selector length + !important
+  to guarantee we win rather than fight specificity.
+*/
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedWrapper {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedWrapper.embedForm {
+  max-width: 100% !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedBody,
+#mlb2-44482977.ml-form-embedContainer .ml-form-successBody {
+  padding: 0 !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedContent,
+#mlb2-44482977.ml-form-embedContainer .ml-form-successContent {
+  text-align: center !important;
+  margin: 0 0 20px 0 !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedContent h4,
+#mlb2-44482977.ml-form-embedContainer .ml-form-successContent h4 {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedContent p,
+#mlb2-44482977.ml-form-embedContainer .ml-form-successContent p {
+  font-family: 'Inter', sans-serif !important;
+  color: #e5e5e5 !important;
+  opacity: 0.6 !important;
+  font-size: 0.9rem !important;
+  text-align: center !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input {
+  background-color: transparent !important;
+  color: #e5e5e5 !important;
+  border-color: rgba(229, 229, 229, 0.3) !important;
+  border-radius: 2px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input:focus {
+  border-color: #a11212 !important;
+  outline: none !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input::placeholder,
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input::-webkit-input-placeholder,
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input::-moz-placeholder,
+#mlb2-44482977.ml-form-embedContainer .ml-form-fieldRow input:-ms-input-placeholder {
+  color: rgba(229, 229, 229, 0.4) !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedSubmit button {
+  background-color: #a11212 !important;
+  color: #ffffff !important;
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  font-size: 0.85rem !important;
+  border-radius: 2px !important;
+}
+
+#mlb2-44482977.ml-form-embedContainer .ml-form-embedSubmit button:hover {
+  background-color: #ffffff !important;
+  color: #0b0b0b !important;
+}
+
   footer {
     margin-top: auto;
     padding: 30px 20px;
@@ -178,6 +310,11 @@ h1 {
 
 <body>
 
+<nav class="site-nav">
+  <a href="index.html" class="active" aria-current="page">Home</a>
+  <a href="gallery.html">Gallery</a>
+</nav>
+
 <header>
    <img src="images/HexbloodLogoTransparent.png" alt="Hexblood Logo" class="logo"> 
   <div class="tagline">Sludge • Doom • Riffs</div>
@@ -185,6 +322,13 @@ h1 {
 
   <section class="section">
     <p>Hexblood are a sludge and doom metal band from Dorset and Hampshire, UK. Rooted in occult themes, slow-burning riffs, and cavernous grooves, we conjure heavy music from the murk of the south coast.</p>
+  </section>
+
+  <section class="mailing-list" id="mailing-list">
+    <h2>Join the Mailing List</h2>
+    <p>Shows, releases, and the occasional bit of murk — straight to your inbox. No spam, unsubscribe anytime.</p>
+
+    <div class="ml-embedded" data-form="J0Kr64"></div>
   </section>
 
   <footer>
@@ -207,6 +351,16 @@ h1 {
     </div>
   <div class="footer-text">© 2026 Hexblood</div>
   </footer>
+
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2555690');
+</script>
+<!-- End MailerLite Universal -->
 
 </body>
 </html>

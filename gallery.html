@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | Hexblood</title>
+<meta name="description" content="Live photos of Hexblood, sludge and doom metal band from Dorset and Hampshire, UK.">
+<link rel="canonical" href="https://hexblood.com/gallery.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hexblood.com/gallery.html">
+<meta property="og:title" content="Gallery | Hexblood">
+<meta property="og:description" content="Live photos of Hexblood, sludge and doom metal band from Dorset and Hampshire, UK.">
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b0b0b;
+  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle grain effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 20px 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.site-nav a {
+  color: #e5e5e5;
+  opacity: 0.5;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+}
+
+.site-nav a.active {
+  opacity: 1;
+  color: #a11212;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.gallery {
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+  column-count: 3;
+  column-gap: 14px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 2px;
+  break-inside: avoid;
+  cursor: pointer;
+  filter: grayscale(15%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.gallery img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.01);
+}
+
+@media (max-width: 900px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 560px) {
+  .gallery { column-count: 1; }
+  h1 { font-size: 1.9rem; letter-spacing: 4px; }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 40px 20px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 2px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: fixed;
+  background: none;
+  border: none;
+  color: #e5e5e5;
+  opacity: 0.6;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 14px;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 1;
+  color: #a11212;
+}
+
+.lightbox-close {
+  top: 14px;
+  right: 14px;
+}
+
+.lightbox-prev {
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+footer {
+  margin-top: auto;
+  padding: 30px 20px;
+  text-align: center;
+  background: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  color: #a11212;
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  opacity: 0.5;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Home</a>
+  <a href="gallery.html" class="active" aria-current="page">Gallery</a>
+</nav>
+
+<header>
+  <h1>Gallery</h1>
+  <div class="tagline">Live &amp; loud</div>
+</header>
+
+<div class="gallery" id="gallery">
+  <img src="images/photos/198fdb47-f3fd-420a-be8a-498ffd94eda6-copied-media~2.jpg" alt="Hexblood performing live at The Hobbit pub, guitarists and drummer under red stage lights" loading="lazy">
+  <img src="images/photos/4a665fd2-9561-4498-ae2f-d370c81d8ffd-copied-media~2.jpg" alt="Hexblood bassist singing into the mic with bandmates playing behind him" loading="lazy">
+  <img src="images/photos/IMG-20260118-WA0030.jpg" alt="Hexblood bassist and guitarist singing together on stage at The Hobbit pub" loading="lazy">
+  <img src="images/photos/IMG-20260601-WA0067.jpg" alt="Hexblood bassist and guitarist facing off during a red-lit live set" loading="lazy">
+  <img src="images/photos/cb673b70-02f7-4aaf-9b6e-194ca935b2b6-copied-media~2.jpg" alt="Hexblood drummer mid-performance under blue and red stage lights" loading="lazy">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <i class="fas fa-xmark"></i>
+  </button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+<footer>
+  <div class="social-links">
+    <a href="https://instagram.com/hexbloodmusic" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/hexbloodmusic" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://open.spotify.com/artist/3jNOsDjkmFFn141kEjs0o4" target="_blank" aria-label="Spotify">
+      <i class="fab fa-spotify"></i>
+    </a>
+    <a href="https://youtube.com/@hexbloodmusic" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="mailto:band@hexblood.com" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+  <div class="footer-text">© 2026 Hexblood</div>
+</footer>
+
+<script>
+  const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  let current = 0;
+
+  function openLightbox(index) {
+    current = index;
+    lightboxImg.src = thumbs[current].src;
+    lightboxImg.alt = thumbs[current].alt;
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
+
+  function showRelative(delta) {
+    current = (current + delta + thumbs.length) % thumbs.length;
+    lightboxImg.src = thumbs[current].src;
+    lightboxImg.alt = thumbs[current].alt;
+  }
+
+  thumbs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => showRelative(-1));
+  document.getElementById('lightboxNext').addEventListener('click', () => showRelative(1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showRelative(-1);
+    if (e.key === 'ArrowRight') showRelative(1);
+  });
+</script>
+
+</body>
+</html>
